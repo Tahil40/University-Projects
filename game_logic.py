@@ -1,21 +1,29 @@
+# import package random...
+import random 
 
-import random
-
-def play_rps(user_choice):
+# create function PlayStonePaperScissor which take parameter user_choice and returns 2 values computer_choice and result....
+def PlayStonePaperScissor(user_choice):
     """Logic for Stone - Paper - Scissors"""
+    # create a list choices which stores 3 items stone, paper, scissors....
     choices = ['stone', 'paper', 'scissors']
+    # create a variable computer_choice which stores one of the random item from choices list as a computer_choice random.choice() returns random item from choices list on every execution....
     computer_choice = random.choice(choices)
     
+    # Add an if statement to check wheather the choice enter by user is present inside choices list if not return Invalid choice....
     if user_choice not in choices:
-        return None, computer_choice, "Invalid choice!"
-        
+        return "Invalid choice!"
+    
+    # if the choice enter by the user is same as the computer's choice then game is tie and create result variable which shows its tie.... 
     if user_choice == computer_choice:
         result = "It's a Tie!"
-    elif (user_choice == 'stone' and computer_choice == 'scissors') or \
-         (user_choice == 'paper' and computer_choice == 'stone') or \
-         (user_choice == 'scissors' and computer_choice == 'paper'):
+    
+    # define the rules where the user will win....
+    elif (user_choice == 'stone' and computer_choice == 'scissors') or (user_choice == 'paper' and computer_choice == 'stone') or (user_choice == 'scissors' and computer_choice == 'paper'):
         result = "You Win!"
+    
+    # if the user's choice not matches the above if and else statements then the computer wins....
     else:
         result = "Computer Wins!"
-        
+    
+    # return computer_choice and result....
     return computer_choice, result
